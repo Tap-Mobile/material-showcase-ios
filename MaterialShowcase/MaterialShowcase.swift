@@ -69,7 +69,7 @@ public class MaterialShowcase: UIView {
   @objc public var targetTintColor: UIColor!
   @objc public var targetHolderRadius: CGFloat = 0.0
   @objc public var targetHolderColor: UIColor!
-  @objc public var backgroundRadius: CGFloat?
+  @objc public var backgroundRadius: CGFloat = -1
   // Text
   @objc public var primaryText: String!
   @objc public var secondaryText: String!
@@ -305,7 +305,7 @@ extension MaterialShowcase {
       if UIDevice.current.userInterfaceIdiom == .pad {
         radius = 300.0
       } else {
-        if let backgroundRadius = backgroundRadius {
+        if backgroundRadius > 0 {
           radius = backgroundRadius
         } else {
           radius = getOuterCircleRadius(center: center, textBounds: instructionView.frame, targetBounds: targetRippleView.frame)
