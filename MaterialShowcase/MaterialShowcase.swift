@@ -303,7 +303,11 @@ extension MaterialShowcase {
       let center = targetRippleView.center//getOuterCircleCenterPoint(for: targetCopyView)
       
       if UIDevice.current.userInterfaceIdiom == .pad {
-        radius = 300.0
+        if backgroundRadius > 0 {
+          radius = backgroundRadius
+        } else {
+          radius = 300.0
+        }
       } else {
         if backgroundRadius > 0 {
           radius = backgroundRadius
